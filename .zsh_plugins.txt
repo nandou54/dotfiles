@@ -8,14 +8,13 @@ ohmyzsh/ohmyzsh path:plugins/command-not-found
 ohmyzsh/ohmyzsh path:plugins/copyfile
 ohmyzsh/ohmyzsh path:plugins/docker
 ohmyzsh/ohmyzsh path:plugins/git
-ohmyzsh/ohmyzsh path:plugins/history
+#ohmyzsh/ohmyzsh path:plugins/history
 ohmyzsh/ohmyzsh path:plugins/npm
 ohmyzsh/ohmyzsh path:plugins/yarn
+olets/zsh-abbr
 vladmyr/dotfiles-plugin
 zsh-users/zsh-completions
 zdharma-continuum/fast-syntax-highlighting
 
-# Selecting theme
+# Loading theme
 romkatv/powerlevel10k
-#sindresorhus/pure
-#BrandonRoehl/zsh-clean

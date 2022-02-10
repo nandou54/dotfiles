@@ -1,5 +1,3 @@
-*
-!.gitignore
-!.zshrc
-!.zsh_plugins.txt
-!.p10k.zsh
+.zsh_plugins.sh
+.zcompdump*
+abbrevarions
