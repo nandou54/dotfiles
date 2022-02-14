@@ -30,15 +30,16 @@ source $ZDOTDIR/.zsh_plugins.sh
 
 # Customizing plugins
 # Trigger globalias on enter
-_globalias_accept(){
+globalias_accept(){
   local word=${${(Az)LBUFFER}[-1]}
-  if [[ $GLOBALIAS_FILTER_VALUES[(Ie)$word] -eq 0 ]]; then
+
+  if ! [[ $word =~ '".*' || $word =~ "'.*" ]]; then
     zle _expand_alias
     zle expand-word
   fi
   zle accept-line
 }
-zle -N globalias_accept _globalias_accept
+zle -N globalias_accept
 bindkey "^M" globalias_accept
 
 # Loading fzf

@@ -9,6 +9,7 @@ ohmyzsh/ohmyzsh path:plugins/copyfile
 ohmyzsh/ohmyzsh path:plugins/gh
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/globalias
+#MenkeTechnologies/zsh-expand
 ohmyzsh/ohmyzsh path:plugins/npm
 ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/ubuntu
@@ -19,6 +20,4 @@ zdharma-continuum/fast-syntax-highlighting
 
 # Loading theme
 romkatv/powerlevel10k
-
-
 
