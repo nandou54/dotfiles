@@ -1,20 +1,23 @@
 # Loading bundles
-dominik-schwabe/zsh-fnm
-ohmyzsh/ohmyzsh
 Aloxaf/fzf-tab
+ohmyzsh/ohmyzsh
+dominik-schwabe/zsh-fnm
 
 ohmyzsh/ohmyzsh path:plugins/bgnotify
 ohmyzsh/ohmyzsh path:plugins/command-not-found
 ohmyzsh/ohmyzsh path:plugins/copyfile
-ohmyzsh/ohmyzsh path:plugins/docker
+ohmyzsh/ohmyzsh path:plugins/gh
 ohmyzsh/ohmyzsh path:plugins/git
-#ohmyzsh/ohmyzsh path:plugins/history
+ohmyzsh/ohmyzsh path:plugins/globalias
 ohmyzsh/ohmyzsh path:plugins/npm
-ohmyzsh/ohmyzsh path:plugins/yarn
-olets/zsh-abbr
-vladmyr/dotfiles-plugin
+ohmyzsh/ohmyzsh path:plugins/sudo
+ohmyzsh/ohmyzsh path:plugins/ubuntu
+
 zsh-users/zsh-completions
 zdharma-continuum/fast-syntax-highlighting
 
 # Loading theme
 romkatv/powerlevel10k
+
+
+

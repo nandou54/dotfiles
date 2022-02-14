@@ -34,11 +34,10 @@ alias lc="colorls --sd -A"
 alias open="xdg-open 2>/dev/null"
 alias sql="$HOME/sqlcl/bin/sql"
 
-alias reload="source $ZDOTDIR/.zshrc"
-alias reload-aliases="source $ZDOTDIR/.aliases && abbr import-aliases"
-alias reload-plugins="antibody bundle < $ZDOTDIR/.zsh_plugins.txt > $ZDOTDIR/.zsh_plugins.sh && source $ZDOTDIR/.zsh_plugins.sh"
+alias reload="exec zsh"
+alias reload-plugins="antibody bundle < $ZDOTDIR/.zsh_plugins.txt > $ZDOTDIR/.zsh_plugins.sh && reload"
 alias zsh-config="nano $ZDOTDIR/.zshrc && reload"
-alias zsh-aliases="nano $ZDOTDIR/.aliases && reload-aliases"
+alias zsh-aliases="nano $ZDOTDIR/.aliases && reload"
 alias zsh-plugins="nano $ZDOTDIR/.zsh_plugins.txt && reload-plugins"
 
 google(){
