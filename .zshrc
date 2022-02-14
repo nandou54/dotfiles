@@ -25,9 +25,6 @@ for dump in $ZDOTDIR/.zcompdump(N.mh+24); do
 done
 compinit -C
 
-# Loading fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Load zsh plugins with Antibody
 source $ZDOTDIR/.zsh_plugins.sh
 
@@ -43,6 +40,9 @@ _globalias_accept(){
 }
 zle -N globalias_accept _globalias_accept
 bindkey "^M" globalias_accept
+
+# Loading fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Aliases definition
 source $ZDOTDIR/.aliases

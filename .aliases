@@ -49,3 +49,10 @@ timezsh(){
   for i in $(seq 1 4); do /usr/bin/time $shell -i -c exit; done
 }
 
+upload-dotfiles(){
+  echo "Uploading dotfiles..."
+  cd $ZDOTDIR
+  gcam "dotfiles updated"
+  gp
+  echo "Done."
+}

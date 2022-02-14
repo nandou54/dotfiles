@@ -13,6 +13,7 @@ ohmyzsh/ohmyzsh path:plugins/npm
 ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/ubuntu
 
+#zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zdharma-continuum/fast-syntax-highlighting
 
