@@ -63,5 +63,6 @@ upload-dotfiles(){
   git add .
   git commit -m "dotfiles updated $(date +%d-%m-%y)"
   git push
+  cz
   echo "Done."
 }
