@@ -1,23 +1,29 @@
+# Loading theme
+romkatv/powerlevel10k
+#spaceship-prompt/spaceship-prompt
+#sindresorhus/pure
+#therealklanni/purity
+
 # Loading bundles
 Aloxaf/fzf-tab
 ohmyzsh/ohmyzsh
 dominik-schwabe/zsh-fnm
 
-ohmyzsh/ohmyzsh path:plugins/bgnotify
 ohmyzsh/ohmyzsh path:plugins/command-not-found
 ohmyzsh/ohmyzsh path:plugins/copyfile
 ohmyzsh/ohmyzsh path:plugins/gh
 ohmyzsh/ohmyzsh path:plugins/git
 ohmyzsh/ohmyzsh path:plugins/globalias
-#MenkeTechnologies/zsh-expand
 ohmyzsh/ohmyzsh path:plugins/npm
+ohmyzsh/ohmyzsh path:plugins/yarn
 ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/ubuntu
+docker/cli path:contrib/completion/zsh/_docker
 
 #zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
+#zsh-users/zsh-syntax-highlighting
 zdharma-continuum/fast-syntax-highlighting
-
-# Loading theme
-romkatv/powerlevel10k
+#zdharma/fast-syntax-highlighting
+#z-shell/F-Sy-H
 

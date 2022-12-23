@@ -1,52 +1,67 @@
+# Change dotfiles location
+ZDOTDIR=~/dotfiles
+
 # Enable Powerlevel10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Move the prompt to the bottom of the screen
-# printf '\n%.0s' {1..22}
-
 # Enable command auto-correction.
-#ENABLE_CORRECTION="true"
-
-# Display red dots whilst waiting for completion (bug)
-#COMPLETION_WAITING_DOTS="true"
+ENABLE_CORRECTION="true"
 
 # Update automatically
-DISABLE_UPDATE_PROMPT=true
+# DISABLE_UPDATE_PROMPT=true
 
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
+# PATH
+export JAVA_HOME=/usr
+export PATH=$PATH:/home/pablo/.local/bin
+export PATH=$PATH:/usr/local/go/bin
+
+# P10k prompt
+[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Optimizing auto-completion
 autoload -Uz compinit
 for dump in $ZDOTDIR/.zcompdump(N.mh+24); do
   compinit
 done
-compinit -C
+
+# Aliases definition
+source $ZDOTDIR/.aliases
+
+# Move prompt to bottom
+cls
 
 # Load zsh plugins with Antibody
 source $ZDOTDIR/.zsh_plugins.sh
+
+# Loading fzf
+[ -f $ZDOTDIR/.fzf.zsh ]&& source $ZDOTDIR/.fzf.zsh
 
 # Customizing plugins
 # Trigger globalias on enter
 globalias_accept(){
   local word=${${(Az)LBUFFER}[-1]}
-
-  if ! [[ $word =~ '".*' || $word =~ "'.*" ]]; then
     zle _expand_alias
     zle expand-word
-  fi
   zle accept-line
 }
 zle -N globalias_accept
 bindkey "^M" globalias_accept
 
-# Loading fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Vs code integration
+if [[ "$TERM_PROGRAM" == "vscode" ]]; then
+  POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
+fi
 
-# Aliases definition
-source $ZDOTDIR/.aliases
-
-# P10k prompt
-[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+#Fix slowness of pastes with zsh-syntax-highlighting.zsh
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic
+}
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish

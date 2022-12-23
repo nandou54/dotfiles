@@ -1,3 +1,8 @@
-.zsh_plugins.sh
-.zcompdump*
-abbrevarions
+*
+!*/
+!.aliases
+!.fzf.zsh
+!.p10k.zsh
+!.zsh_plugins.txt
+!.zshrc
+!.fnm
