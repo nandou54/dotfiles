@@ -14,24 +14,18 @@ ENABLE_CORRECTION="true"
 
 # PATH
 export JAVA_HOME=/usr
-export PATH=$PATH:/home/pablo/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/local/go/bin
-
-# P10k prompt
-[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-
-# Optimizing auto-completion
-autoload -Uz compinit
-for dump in $ZDOTDIR/.zcompdump(N.mh+24); do
-  compinit
-done
 
 # Aliases definition
 source $ZDOTDIR/.aliases
 
 # Move prompt to bottom
 cls
+
+# P10k prompt
+[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+# typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 # Load zsh plugins with Antibody
 source $ZDOTDIR/.zsh_plugins.sh
@@ -46,6 +40,7 @@ globalias_accept(){
     zle _expand_alias
     zle expand-word
   zle accept-line
+  print ""
 }
 zle -N globalias_accept
 bindkey "^M" globalias_accept
@@ -65,3 +60,9 @@ pastefinish() {
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
+
+# Optimizing auto-completion
+autoload -Uz compinit
+for dump in $ZDOTDIR/.zcompdump(N.mh+24); do
+  compinit
+done
