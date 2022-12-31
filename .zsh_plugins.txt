@@ -1,29 +1,36 @@
-# Loading theme
+# Theme
 romkatv/powerlevel10k
 #spaceship-prompt/spaceship-prompt
 #sindresorhus/pure
 #therealklanni/purity
 
-# Loading bundles
-Aloxaf/fzf-tab
+# Core
 ohmyzsh/ohmyzsh
-dominik-schwabe/zsh-fnm
 
+# Functions
+#akash329d/zsh-alias-finder
+Aloxaf/fzf-tab
+#brymck/print-alias
+dominik-schwabe/zsh-fnm
 ohmyzsh/ohmyzsh path:plugins/command-not-found
+zpm-zsh/clipboard
+
+# Autocompletions
+docker/cli path:contrib/completion/zsh/_docker
+ohmyzsh/ohmyzsh path:plugins/aws
 ohmyzsh/ohmyzsh path:plugins/copyfile
 ohmyzsh/ohmyzsh path:plugins/gh
 ohmyzsh/ohmyzsh path:plugins/git
-ohmyzsh/ohmyzsh path:plugins/globalias
+#ohmyzsh/ohmyzsh path:plugins/globalias
 ohmyzsh/ohmyzsh path:plugins/npm
-ohmyzsh/ohmyzsh path:plugins/yarn
 ohmyzsh/ohmyzsh path:plugins/sudo
 ohmyzsh/ohmyzsh path:plugins/ubuntu
-docker/cli path:contrib/completion/zsh/_docker
+ohmyzsh/ohmyzsh path:plugins/yarn
 
-#zsh-users/zsh-autosuggestions
+# Essentials
+zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
-#zsh-users/zsh-syntax-highlighting
-zdharma-continuum/fast-syntax-highlighting
+zsh-users/zsh-syntax-highlighting
+#zdharma-continuum/fast-syntax-highlighting
 #zdharma/fast-syntax-highlighting
-#z-shell/F-Sy-H
 
