@@ -1,89 +1,44 @@
-# PATH
-export JAVA_HOME=/usr
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/mnt/c/Users/Pablo/OneDrive/Documents/git
 ZDOTDIR=~/dotfiles
 
-# Aliases definition
-source $ZDOTDIR/.aliases
+# ================= FEATURES =================
+DISABLE_ALIASES=false
+DISABLE_PROMPT=false
+DISABLE_PLUGINS=false
+DISABLE_PRINT_ALIAS_COMPLETION=false
+DISABLE_EXPAND_ALIAS=true
 
-# Enable Powerlevel10k instant prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  #source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# ALIASES: Source aliases definition
+if [[ $DISABLE_ALIASES != true ]]; then
+  source $ZDOTDIR/features/aliases.zsh
 fi
 
-# Move prompt to bottom
-cls
+# PROMPT: Powerlevel10k
+if [[ $DISABLE_PROMPT != true ]]; then
+  source $ZDOTDIR/features/prompt.zsh
+fi
 
-# Print alias completion
-local cmd_alias=""
+# PlUGINS: Antibody
+if [[ $DISABLE_PLUGINS != true ]]; then
+  source $ZDOTDIR/features/plugins.zsh
+fi
 
-alias_for() {
-  [[ $1 =~ '[[:punct:]]' ]] && return
-  local search=${1}
-  local found="$( alias $search )"
-  if [[ -n $found ]]; then
-    found=${found//\\//}
-    found=${found%\'}
-    found=${found#"$search="}
-    found=${found#"'"}
-    echo "${found} ${2}" | xargs
-  else
-    echo ""
-  fi
-}
+# PRINT ALIAS COMPLETION
+if [[ $DISABLE_PRINT_ALIAS_COMPLETION != true ]]; then
+  source $ZDOTDIR/features/print-alias-completion.zsh
+fi
 
-expand_command_line() {
-  first=$(echo "$1" | awk '{print $1;}')
-  rest=$(echo ${${1}/"${first}"/})
+# EXPAND ALIAS
+if [[ $DISABLE_EXPAND_ALIAS != true ]]; then
+  source $ZDOTDIR/features/expand-alias.zsh
+fi
 
-  if [[ -n "${first//-//}" ]]; then
-    cmd_alias="$(alias_for "${first}" "${rest:1}")"
-    if [[ -n $cmd_alias ]] && [[ "${cmd_alias:0:1}" != "." ]]; then
-      echo "\e[1;34m❯ ${cmd_alias}\e[0m"
-    fi
-  fi
-}
 
-pre_validation() {
-  [[ $# -eq 0 ]] && return
-  expand_command_line "$@"
-}
-
-autoload -U add-zsh-hook
-add-zsh-hook preexec pre_validation
-
+# ================= CONFIGURATION =================
 # Enable command auto-correction
 ENABLE_CORRECTION="true"
 
-# Update automatically
-# DISABLE_UPDATE_PROMPT=true
-
-# P10k prompt
-[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
-
-# Load zsh plugins with Antibody
-source $ZDOTDIR/.zsh_plugins.sh
-
 # Loading fzf
 [ -f $ZDOTDIR/.fzf.zsh ] && source $ZDOTDIR/.fzf.zsh
-
-# Expand alias on enter
-#expand_alias_on_accept(){
-#  local word=${${(Az)LBUFFER}[-1]}
-#  zle _expand_alias
-#  zle expand-word
-#  zle accept-line
-#}
-
-#zle -N expand_alias_on_accept
-#bindkey "^M" expand_alias_on_accept
-
-# Vs code integration
-if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  POWERLEVEL9K_TERM_SHELL_INTEGRATION=true
-fi
 
 #Fix slowness of pastes with zsh-syntax-highlighting.zsh
 pasteinit() {
