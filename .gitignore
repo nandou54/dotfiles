@@ -1,8 +1,1 @@
-*
-!*/
-!.aliases
-!.fzf.zsh
-!.p10k.zsh
-!.zsh_plugins.txt
-!.zshrc
-!.fnm
+.zcompdump*
